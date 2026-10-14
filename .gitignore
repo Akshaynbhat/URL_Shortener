@@ -15,7 +15,10 @@ ENV/
 *.db
 *.sqlite
 *.sqlite3
-instance/
+# Keep instance/ folder tracked but ignore any database files inside it
+instance/*.db
+instance/*.sqlite
+instance/*.sqlite3
 
 # ── Environment variables (may contain secrets) ───────────────────────────────
 .env
