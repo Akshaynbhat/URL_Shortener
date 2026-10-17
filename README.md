@@ -1,4 +1,4 @@
-# CodeAlpha URL Shortener
+#URL Shortener
 
 > **CodeAlpha Backend Development Internship Project**  
 > Author: **Akshay N Bhat** | Stack: Python 3 · Flask · SQLite · Vanilla JS
@@ -396,58 +396,8 @@ Tests use an **in-memory SQLite database** — they never touch `instance/urls.d
 
 ---
 
-## 14. GitHub Upload
 
-### First-time setup
-
-```powershell
-# 1. Check Git is installed
-git --version
-
-# 2. Configure your identity (once per machine)
-git config --global user.name "Akshay N Bhat"
-git config --global user.email "your@email.com"
-
-# 3. Initialise the repository
-git init
-
-# 4. Set the default branch name to main
-git branch -M main
-
-# 5. Review what will be staged
-git status
-
-# 6. Stage all project files
-git add .
-
-# 7. Verify staged files (database and venv must NOT appear)
-git status
-
-# 8. Create the first commit
-git commit -m "Initial commit: CodeAlpha URL Shortener"
-
-# 9. Connect to your GitHub repository
-#    Create the repository at https://github.com/new first (name: CodeAlpha_URLShortener)
-git remote add origin https://github.com/YOUR_USERNAME/CodeAlpha_URLShortener.git
-
-# 10. Push to GitHub
-git push -u origin main
-
-# 11. Verify on GitHub
-#     Open https://github.com/YOUR_USERNAME/CodeAlpha_URLShortener
-```
-
-### Future updates
-
-```powershell
-git add .
-git commit -m "Brief description of changes"
-git push
-```
-
----
-
-## 15. Security Considerations
+## 14. Security Considerations
 
 | Concern | How it is addressed |
 |---|---|
@@ -464,7 +414,7 @@ git push
 
 ---
 
-## 16. Known Limitations
+## 15. Known Limitations
 
 - **No authentication:** The `/api/urls` endpoint is unauthenticated. Suitable for local demos only.
 - **No click analytics:** Visit counts are not tracked.
@@ -475,7 +425,7 @@ git push
 
 ---
 
-## 17. Future Enhancements
+## 16. Future Enhancements
 
 - Custom short codes chosen by the user
 - Click-count analytics per short URL
