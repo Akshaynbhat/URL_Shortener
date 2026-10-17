@@ -1,4 +1,4 @@
-#URL Shortener
+# URL Shortener
 
 > **CodeAlpha Backend Development Internship Project**  
 > Author: **Akshay N Bhat** | Stack: Python 3 · Flask · SQLite · Vanilla JS
