@@ -38,6 +38,7 @@ from flask import (
 from .database import get_all_urls, health_check
 from .services import lookup_url, shorten_url
 from .validators import validate_short_code, validate_url
+from .reachability import check_url_reachable, ReachabilityError
 
 logger = logging.getLogger(__name__)
 
@@ -118,10 +119,23 @@ def shorten():
     # --- Validate the URL -------------------------------------------------- #
     raw_url = data.get("url")
 
+    
     max_length: int = current_app.config.get("MAX_URL_LENGTH", 2048)
-    is_valid, error_msg = validate_url(raw_url, max_length=max_length)
+
+    # First validate the URL format.
+    is_valid, error_msg = validate_url(
+        raw_url,
+        max_length=max_length
+    )
+
     if not is_valid:
         return jsonify({"error": error_msg}), 400
+
+    # Then check whether the destination can be reached.
+    try:
+        check_url_reachable(raw_url)
+    except ReachabilityError as exc:
+        return jsonify({"error": str(exc)}), 422
 
     # --- Generate and store the short code --------------------------------- #
     try:
